@@ -130,11 +130,6 @@
       "style": "plain",
       "template": "\uf105 "
    },
-   "transient_prompt": {
-      "foreground": "p:closer",
-      "style": "plain",
-      "template": "<p:mauve,>{{ .PWD }}</> \uf105 "
-   },
    "palette": {
       "blue": "#89B4FA",
       "box": "#bcc0cc",
