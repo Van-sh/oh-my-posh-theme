@@ -7,7 +7,7 @@
             {
                "foreground": "p:box",
                "style": "plain",
-               "template": "\u250c ",
+               "template": "{{ if .Segments.Contains \"Git\" }}\u250c {{ end }}",
                "type": "text"
             },
             {
