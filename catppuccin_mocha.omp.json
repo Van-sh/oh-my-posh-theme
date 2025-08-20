@@ -44,7 +44,7 @@
             {
                "foreground": "p:box",
                "style": "plain",
-               "template": "{{ if .Segments.Git.Enabled }}\u251c{{ else }}\u250c{{ end }} ",
+               "template": "{{ if .Segments.Contains \"Git\" }}\u251c{{ else }}\u250c{{ end }} ",
                "type": "text"
             },
             {
@@ -68,7 +68,7 @@
                   "fetch_package_manager": true
                },
                "style": "plain",
-               "template": "{{ if .Segments.Bun.Enabled }}{{ else }}<p:green,>\ued0d <p:text,>[</>{{ .Full }}<p:text,>]</></>{{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }} {{ end }}",
+               "template": "{{ if .Segments.Contains \"Bun\" }}{{ else }}<p:green,>\ued0d <p:text,>[</>{{ .Full }}<p:text,>]</></>{{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }} {{ end }}",
                "type": "node"
             },
             {
