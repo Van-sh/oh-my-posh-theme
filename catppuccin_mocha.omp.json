@@ -5,6 +5,12 @@
          "alignment": "left",
          "segments": [
             {
+               "foreground": "p:box",
+               "style": "plain",
+               "template": "\u250c ",
+               "type": "text"
+            },
+            {
                "foreground": "p:lavender",
                "properties": {
                   "fetch_status": true,
@@ -16,7 +22,7 @@
                   "source": "cli"
                },
                "style": "plain",
-               "template": "\u250c {{ if .UpstreamIcon }}{{ .UpstreamIcon }} {{ else }}git{{ end }}:<p:text,>(</><p:red>{{ .HEAD }}</><p:text,>)</>{{if .BranchStatus }}<p:text,>{{ \"{\" }}</>{{ .BranchStatus }}<p:text,>{{ \"}\" }}</>{{ end }}{{ if .Working.Changed }} <p:green,>\uf044 {{ .Working.String }}</>{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} <p:subtext,>|</>{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} \uf0c7 {{ .StashCount }}{{ end }} ",
+               "template": "{{ if .UpstreamIcon }}{{ .UpstreamIcon }} {{ else }}git{{ end }}:<p:text,>(</><p:red>{{ .HEAD }}</><p:text,>)</>{{if .BranchStatus }}<p:text,>{{ \"{\" }}</>{{ .BranchStatus }}<p:text,>{{ \"}\" }}</>{{ end }}{{ if .Working.Changed }} <p:green,>\uf044 {{ .Working.String }}</>{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} <p:subtext,>|</>{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} \uf0c7 {{ .StashCount }}{{ end }} ",
                "type": "git"
             }
          ],
