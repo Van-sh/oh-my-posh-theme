@@ -16,7 +16,7 @@
                   "source": "cli"
                },
                "style": "plain",
-               "template": "\u250c {{ if .UpstreamIcon }}{{ .UpstreamIcon }} {{ else }}git{{ end }}:<p:text,>(</><p:red>{{ .HEAD }}</><p:text,>)</>{{if .BranchStatus }}<p:text,>{{ \"{\" }}</>{{ .BranchStatus }}<p:text,>{{ \"}\" }}</>{{ end }}{{ if .Working.Changed }} <p:green,> {{ .Working.String }}</>{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} <p:subtext,>|</>{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }} ",
+               "template": "\u250c {{ if .UpstreamIcon }}{{ .UpstreamIcon }} {{ else }}git{{ end }}:<p:text,>(</><p:red>{{ .HEAD }}</><p:text,>)</>{{if .BranchStatus }}<p:text,>{{ \"{\" }}</>{{ .BranchStatus }}<p:text,>{{ \"}\" }}</>{{ end }}{{ if .Working.Changed }} <p:green,>\uf044 {{ .Working.String }}</>{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} <p:subtext,>|</>{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} \uf0c7 {{ .StashCount }}{{ end }} ",
                "type": "git"
             }
          ],
@@ -31,7 +31,7 @@
                   "time_format": "03:04:05PM"
                },
                "style": "plain",
-               "template": "󱑍 {{ .CurrentDate | date .Format }}",
+               "template": "\udb85\udc4d {{ .CurrentDate | date .Format }}",
                "type": "time"
             }
          ],
@@ -68,13 +68,13 @@
                   "fetch_package_manager": true
                },
                "style": "plain",
-               "template": "{{ if .Segments.Bun.Enabled }}{{ else }}<p:green,> <p:text,>[</>{{ .Full }}<p:text,>]</></>{{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }} {{ end }}",
+               "template": "{{ if .Segments.Bun.Enabled }}{{ else }}<p:green,>\ued0d <p:text,>[</>{{ .Full }}<p:text,>]</></>{{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }} {{ end }}",
                "type": "node"
             },
             {
                "foreground": "p:flamingo",
                "style": "plain",
-               "template": " <p:text,>[</>{{.Full}}<p:text,>]</>",
+               "template": "\ue76f <p:text,>[</>{{.Full}}<p:text,>]</>",
                "type": "bun"
             },
             {
@@ -83,13 +83,13 @@
                   "display_mode": "context"
                },
                "style": "plain",
-               "template": " <p:text,>[</>{{ .Full }}<p:text,>]</> {{ if .Venv }}({{ .Venv }}) {{ end }}",
+               "template": "\ue235 <p:text,>[</>{{ .Full }}<p:text,>]</> {{ if .Venv }}({{ .Venv }}) {{ end }}",
                "type": "python"
             },
             {
                "foreground": "p:blue",
                "style": "plain",
-               "template": " <p:text,>[</>{{ .Full }}<p:text,>]</>",
+               "template": "\ue65e <p:text,>[</>{{ .Full }}<p:text,>]</>",
                "type": "go"
             }
          ],
@@ -119,7 +119,7 @@
                   "always_enabled": true
                },
                "style": "plain",
-               "template": " <p:subtext,>\u2502</>  {{ .FormattedMs }}",
+               "template": " <p:subtext,>\u2502</> \ueba2 {{ .FormattedMs }}",
                "type": "executiontime"
             }
          ],
@@ -138,13 +138,13 @@
             {
                "foreground": "p:os",
                "style": "plain",
-               "template": "{{.Icon}} {{ if .WSL }}<d><p:text,>󰻀 </d>{{ end }}",
+               "template": "{{.Icon}} {{ if .WSL }}<d><p:text,>\udb83\udec0 </d>{{ end }}",
                "type": "os"
             },
             {
                "foreground": "p:blue",
                "style": "plain",
-               "template": "{{ if .SSHSession }} {{ end }}{{ .UserName }}@{{ .HostName }} ",
+               "template": "{{ if .SSHSession }}\ueba9 {{ end }}{{ .UserName }}@{{ .HostName }} ",
                "type": "session"
             },
             {
