@@ -74,7 +74,7 @@
                   "fetch_package_manager": true
                },
                "style": "plain",
-               "template": "{{ if .Segments.Contains \"Bun\" }}{{ else }}<p:green,>\ued0d <p:text,>[</>{{ .Full }}<p:text,>]</></>{{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }} {{ end }}",
+               "template": "{{ if .Segments.Contains \"Bun\" }}{{ else }}<p:green,>\ued0d <p:text,>[</>{{ .Full }}<p:text,>]</></>{{ if .PackageManagerIcon }}<p:text,><b>\u2192</b></> {{ .PackageManagerIcon }} {{ end }} {{ end }}",
                "type": "node"
             },
             {
