@@ -7,7 +7,7 @@
             {
                "foreground": "p:box",
                "style": "plain",
-               "template": "{{ if .Segments.Contains \"Git\" }}\u250c {{ end }}",
+               "template": "{{ if .Segments.Contains \"Git\" }}┌ {{ end }}",
                "type": "text"
             },
             {
@@ -22,7 +22,7 @@
                   "source": "cli"
                },
                "style": "plain",
-               "template": "{{ if .UpstreamIcon }}{{ .UpstreamIcon }} {{ else }}git{{ end }}:<p:text,>(</><p:red>{{ .HEAD }}</><p:text,>)</>{{if .BranchStatus }}<p:text,>{{ \"{\" }}</>{{ .BranchStatus }}<p:text,>{{ \"}\" }}</>{{ end }}{{ if .Working.Changed }} <p:green,>\uf044 {{ .Working.String }}</>{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} <p:subtext,>|</>{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} \uf0c7 {{ .StashCount }}{{ end }} ",
+               "template": "{{ if .UpstreamIcon }}{{ .UpstreamIcon }} {{ else }}git{{ end }}:<p:text,>(</><p:red>{{ .HEAD }}</><p:text,>)</>{{if .BranchStatus }}<p:text,>{{ \"{\" }}</>{{ .BranchStatus }}<p:text,>{{ \"}\" }}</>{{ end }}{{ if .Working.Changed }} <p:green,> {{ .Working.String }}</>{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} <p:subtext,>|</>{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }} ",
                "type": "git"
             }
          ],
@@ -37,7 +37,7 @@
                   "time_format": "03:04:05PM"
                },
                "style": "plain",
-               "template": "\udb85\udc4d {{ .CurrentDate | date .Format }}",
+               "template": "󱑍 {{ .CurrentDate | date .Format }}",
                "type": "time"
             }
          ],
@@ -50,7 +50,7 @@
             {
                "foreground": "p:box",
                "style": "plain",
-               "template": "{{ if .Segments.Contains \"Git\" }}\u251c{{ else }}\u250c{{ end }} ",
+               "template": "{{ if .Segments.Contains \"Git\" }}├{{ else }}┌{{ end }} ",
                "type": "text"
             },
             {
@@ -74,13 +74,13 @@
                   "fetch_package_manager": true
                },
                "style": "plain",
-               "template": "{{ if .Segments.Contains \"Bun\" }}{{ else }}<p:green,>\ued0d <p:text,>[</>{{ .Full }}<p:text,>]</></>{{ if .PackageManagerIcon }}<p:text,><b>\u2192</b></> {{ .PackageManagerIcon }} {{ end }} {{ end }}",
+               "template": "{{ if .Segments.Contains \"Bun\" }}{{ else }}<p:green,> <p:text,>[</>{{ .Full }}<p:text,>]</></>{{ if .PackageManagerIcon }}<p:text,><b>→</b></> {{ .PackageManagerIcon }} {{ end }} {{ end }}",
                "type": "node"
             },
             {
                "foreground": "p:flamingo",
                "style": "plain",
-               "template": "\ue76f <p:text,>[</>{{.Full}}<p:text,>]</>",
+               "template": " <p:text,>[</>{{.Full}}<p:text,>]</>",
                "type": "bun"
             },
             {
@@ -89,13 +89,13 @@
                   "display_mode": "context"
                },
                "style": "plain",
-               "template": "\ue235 <p:text,>[</>{{ .Full }}<p:text,>]</> {{ if .Venv }}({{ .Venv }}) {{ end }}",
+               "template": " <p:text,>[</>{{ .Full }}<p:text,>]</> {{ if .Venv }}({{ .Venv }}) {{ end }}",
                "type": "python"
             },
             {
                "foreground": "p:blue",
                "style": "plain",
-               "template": "\ue65e <p:text,>[</>{{ .Full }}<p:text,>]</>",
+               "template": " <p:text,>[</>{{ .Full }}<p:text,>]</>",
                "type": "go"
             }
          ],
@@ -125,7 +125,7 @@
                   "always_enabled": true
                },
                "style": "plain",
-               "template": " <p:subtext,>\u2502</> \ueba2 {{ .FormattedMs }}",
+               "template": " <p:subtext,>│</>  {{ .FormattedMs }}",
                "type": "executiontime"
             }
          ],
@@ -138,25 +138,25 @@
             {
                "foreground": "p:box",
                "style": "plain",
-               "template": "\u2514 ",
+               "template": "└ ",
                "type": "text"
             },
             {
                "foreground": "p:os",
                "style": "plain",
-               "template": "{{.Icon}} {{ if .WSL }}<d><p:text,>\udb83\udec0 </d>{{ end }}",
+               "template": "{{.Icon}} {{ if .WSL }}<d><p:text,>󰻀 </></d>{{ end }}",
                "type": "os"
             },
             {
                "foreground": "p:blue",
                "style": "plain",
-               "template": "{{ if .SSHSession }}\ueba9 {{ end }}{{ .UserName }}@{{ .HostName }} ",
+               "template": "{{ if .SSHSession }} {{ end }}{{ .UserName }}@{{ .HostName }} ",
                "type": "session"
             },
             {
                "foreground": "p:closer",
                "style": "plain",
-               "template": "\uf105",
+               "template": "",
                "type": "text"
             }
          ],
@@ -189,7 +189,10 @@
    "secondary_prompt": {
       "foreground": "p:closer",
       "style": "plain",
-      "template": "\uf105 "
+      "template": " "
+   },
+   "transient_prompt": {
+      "template": "<p:mauve,>{{ .Segments.Path.Path }}</>"
    },
    "version": 3
 }
