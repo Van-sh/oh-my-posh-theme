@@ -191,8 +191,5 @@
       "style": "plain",
       "template": " "
    },
-   "transient_prompt": {
-      "template": "<p:mauve,>{{ .Segments.Path.Path }}</>  "
-   },
    "version": 3
 }
