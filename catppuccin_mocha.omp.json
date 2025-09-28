@@ -3,12 +3,23 @@
    "blocks": [
       {
          "alignment": "left",
+         "newline": true,
          "segments": [
             {
                "foreground": "p:box",
                "style": "plain",
-               "template": "{{ if .Segments.Contains \"Git\" }}┌ {{ end }}",
+               "template": "┌ ",
                "type": "text"
+            },
+            {
+               "foreground": "p:mauve",
+               "properties": {
+                  "home_icon": "~",
+                  "style": "folder"
+               },
+               "style": "plain",
+               "template": "{{ .Path }} ",
+               "type": "path"
             },
             {
                "foreground": "p:lavender",
@@ -24,44 +35,12 @@
                "style": "plain",
                "template": "{{ if .UpstreamIcon }}{{ .UpstreamIcon }} {{ else }}git{{ end }}:<p:text,>(</><p:red>{{ .HEAD }}</><p:text,>)</>{{if .BranchStatus }}<p:text,>{{ \"{\" }}</>{{ .BranchStatus }}<p:text,>{{ \"}\" }}</>{{ end }}{{ if .Working.Changed }} <p:green,> {{ .Working.String }}</>{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} <p:subtext,>|</>{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }} ",
                "type": "git"
-            }
-         ],
-         "type": "prompt"
-      },
-      {
-         "alignment": "right",
-         "segments": [
-            {
-               "foreground": "p:yellow",
-               "properties": {
-                  "time_format": "03:04:05PM"
-               },
-               "style": "plain",
-               "template": "󱑍 {{ .CurrentDate | date .Format }}",
-               "type": "time"
-            }
-         ],
-         "type": "prompt"
-      },
-      {
-         "alignment": "left",
-         "newline": true,
-         "segments": [
-            {
-               "foreground": "p:box",
-               "style": "plain",
-               "template": "{{ if .Segments.Contains \"Git\" }}├{{ else }}┌{{ end }} ",
-               "type": "text"
             },
             {
-               "foreground": "p:mauve",
-               "properties": {
-                  "home_icon": "~",
-                  "style": "folder"
-               },
+               "foreground": "p:flamingo",
                "style": "plain",
-               "template": "{{ .Path }} ",
-               "type": "path"
+               "template": " <p:text,>[</>{{.Full}}<p:text,>]</>",
+               "type": "bun"
             },
             {
                "foreground": "p:green",
@@ -76,12 +55,6 @@
                "style": "plain",
                "template": "{{ if .Segments.Contains \"Bun\" }}{{ else }}<p:green,> <p:text,>[</>{{ .Full }}<p:text,>]</></>{{ if .PackageManagerIcon }}<p:text,><b>→</b></> {{ .PackageManagerIcon }} {{ end }} {{ end }}",
                "type": "node"
-            },
-            {
-               "foreground": "p:flamingo",
-               "style": "plain",
-               "template": " <p:text,>[</>{{.Full}}<p:text,>]</>",
-               "type": "bun"
             },
             {
                "foreground": "p:yellow",
@@ -115,18 +88,6 @@
                "style": "plain",
                "template": " <p:subtext,>as</> root",
                "type": "root"
-            },
-            {
-               "foreground": "p:green",
-               "foreground_templates": [
-                  "{{ if lt .Ms 5000 }}p:green{{ else if lt .Ms 60000 }}p:peach{{ else }}p:red{{ end }}"
-               ],
-               "properties": {
-                  "always_enabled": true
-               },
-               "style": "plain",
-               "template": " <p:subtext,>│</>  {{ .FormattedMs }}",
-               "type": "executiontime"
             }
          ],
          "type": "prompt"
@@ -161,6 +122,24 @@
             }
          ],
          "type": "prompt"
+      },
+      {
+         "alignment": "right",
+         "segments": [
+            {
+               "foreground": "p:green",
+               "foreground_templates": [
+                  "{{ if lt .Ms 5000 }}p:green{{ else if lt .Ms 60000 }}p:peach{{ else }}p:red{{ end }}"
+               ],
+               "properties": {
+                  "always_enabled": true
+               },
+               "style": "plain",
+               "template": " {{ .FormattedMs }}",
+               "type": "executiontime"
+            }
+         ],
+         "type": "rprompt"
       }
    ],
    "final_space": true,
