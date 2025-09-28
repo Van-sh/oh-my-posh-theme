@@ -88,6 +88,18 @@
                "style": "plain",
                "template": " <p:subtext,>as</> root",
                "type": "root"
+            },
+            {
+               "foreground": "p:green",
+               "foreground_templates": [
+                  "{{ if lt .Ms 5000 }}p:green{{ else if lt .Ms 60000 }}p:peach{{ else }}p:red{{ end }}"
+               ],
+               "properties": {
+                  "always_enabled": true
+               },
+               "style": "plain",
+               "template": " <p:subtext,>|</>  {{ .FormattedMs }}",
+               "type": "executiontime"
             }
          ],
          "type": "prompt"
@@ -122,24 +134,6 @@
             }
          ],
          "type": "prompt"
-      },
-      {
-         "alignment": "right",
-         "segments": [
-            {
-               "foreground": "p:green",
-               "foreground_templates": [
-                  "{{ if lt .Ms 5000 }}p:green{{ else if lt .Ms 60000 }}p:peach{{ else }}p:red{{ end }}"
-               ],
-               "properties": {
-                  "always_enabled": true
-               },
-               "style": "plain",
-               "template": " {{ .FormattedMs }}",
-               "type": "executiontime"
-            }
-         ],
-         "type": "rprompt"
       }
    ],
    "final_space": true,
